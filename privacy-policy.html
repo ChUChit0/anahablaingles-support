@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Aprende Inglés - Política de Privacidad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #FF9966 0%, #66CC66 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FF9966 0%, #66CC66 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .flags {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .language-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .language-btn {
+            padding: 10px 30px;
+            border: 2px solid #FF9966;
+            background: white;
+            color: #FF9966;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .language-btn.active {
+            background: #FF9966;
+            color: white;
+        }
+
+        .language-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #FF9966;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #66CC66;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #66CC66;
+            font-size: 1.3em;
+            margin: 25px 0 10px 0;
+        }
+
+        .section p {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .section li {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #FF9966;
+            margin: 20px 0;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #FF9966 0%, #66CC66 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            margin: 30px 0;
+        }
+
+        .contact-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .contact-box a {
+            display: inline-block;
+            background: white;
+            color: #FF9966;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+
+        .contact-box a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .last-updated {
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .flags {
+                font-size: 40px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="flags">🇪🇸 🇺🇸</div>
+            <h1>Ana Aprende Inglés</h1>
+            <p>Política de Privacidad / Privacy Policy</p>
+        </div>
+
+        <div class="content">
+            <div class="language-toggle">
+                <button class="language-btn active" onclick="setLanguage('es')">🇪🇸 Español</button>
+                <button class="language-btn" onclick="setLanguage('en')">🇺🇸 English</button>
+            </div>
+
+            <!-- CONTENIDO EN ESPAÑOL -->
+            <div id="es-content" class="lang-content active">
+                <div class="last-updated">Última actualización: 8 de octubre de 2025</div>
+
+                <div class="section">
+                    <h2>Resumen de Privacidad</h2>
+                    <div class="highlight-box">
+                        <p><strong>Tu privacidad es nuestra prioridad.</strong> Ana Aprende Inglés es una app educativa simple y segura. NO recopilamos, almacenamos ni compartimos datos personales. Toda la información permanece en tu dispositivo.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>1. Información que NO Recopilamos</h2>
+                    <p>Ana Aprende Inglés está diseñada con privacidad desde el principio. NO recopilamos:</p>
+                    <ul>
+                        <li>❌ Nombres, correos electrónicos o información de contacto</li>
+                        <li>❌ Ubicación geográfica</li>
+                        <li>❌ Información de pago</li>
+                        <li>❌ Historial de navegación</li>
+                        <li>❌ Contactos o fotos de tu dispositivo</li>
+                        <li>❌ Identificadores de dispositivo únicos</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>2. Datos Locales en Tu Dispositivo</h2>
+                    <p>La app almacena información localmente en tu dispositivo únicamente para mejorar tu experiencia de aprendizaje:</p>
+                    <ul>
+                        <li>✅ Historial de traducciones (guardado solo en tu iPhone/iPad)</li>
+                        <li>✅ Palabras favoritas marcadas por ti</li>
+                        <li>✅ Progreso de aprendizaje (números y palabras practicadas)</li>
+                        <li>✅ Preferencias de configuración (duración de pronunciación)</li>
+                    </ul>
+                    <p><strong>Importante:</strong> Toda esta información permanece exclusivamente en tu dispositivo y nunca se envía a servidores externos.</p>
+                </div>
+
+                <div class="section">
+                    <h2>3. Uso del Traductor de Voz</h2>
+                    <h3>Apple Translation API</h3>
+                    <p>La función de traducción por voz utiliza los servicios de traducción integrados de Apple:</p>
+                    <ul>
+                        <li>Las traducciones se procesan a través de los servicios de Apple</li>
+                        <li>Apple puede procesar el audio temporalmente para realizar la traducción</li>
+                        <li>No almacenamos ni tenemos acceso a tus grabaciones de voz</li>
+                        <li>Apple maneja el procesamiento según su <a href="https://www.apple.com/legal/privacy/" target="_blank" style="color: #FF9966;">Política de Privacidad</a></li>
+                    </ul>
+
+                    <h3>Permisos Requeridos</h3>
+                    <p>Para usar el traductor de voz, la app solicita:</p>
+                    <ul>
+                        <li>🎤 <strong>Acceso al micrófono:</strong> Solo cuando presionas el botón de grabación</li>
+                        <li>🗣️ <strong>Reconocimiento de voz:</strong> Para convertir tu habla en texto</li>
+                    </ul>
+                    <p>Puedes revocar estos permisos en cualquier momento desde Configuración → Privacidad en tu iPhone.</p>
+                </div>
+
+                <div class="section">
+                    <h2>4. Conexión a Internet</h2>
+                    <p>La app requiere conexión a internet únicamente para:</p>
+                    <ul>
+                        <li>🌐 Traducción de voz en tiempo real (usando servicios de Apple)</li>
+                    </ul>
+                    <p><strong>Sin internet, puedes usar:</strong></p>
+                    <ul>
+                        <li>✅ Aprender números 1-100 con pronunciación</li>
+                        <li>✅ Estudiar palabras esenciales por categorías</li>
+                        <li>✅ Escuchar pronunciaciones</li>
+                        <li>✅ Revisar tu historial guardado</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>5. Servicios de Terceros</h2>
+                    <p>Ana Aprende Inglés NO utiliza:</p>
+                    <ul>
+                        <li>❌ Herramientas de análisis o seguimiento</li>
+                        <li>❌ Publicidad</li>
+                        <li>❌ Servicios de terceros (excepto Apple Translation API)</li>
+                        <li>❌ Redes sociales integradas</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>6. Privacidad de Menores</h2>
+                    <p>Ana Aprende Inglés es segura para todas las edades:</p>
+                    <ul>
+                        <li>✅ No recopilamos información de menores</li>
+                        <li>✅ Sin publicidad ni compras dentro de la app</li>
+                        <li>✅ Contenido educativo 100% apropiado</li>
+                        <li>✅ Sin enlaces a redes sociales o sitios externos</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>7. Seguridad de Datos</h2>
+                    <p>Protegemos tu información mediante:</p>
+                    <ul>
+                        <li>🔒 Almacenamiento local cifrado en tu dispositivo</li>
+                        <li>🔒 Comunicaciones seguras con servicios de Apple</li>
+                        <li>🔒 Sin almacenamiento en servidores externos</li>
+                        <li>🔒 Código revisado y actualizado regularmente</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>8. Tus Derechos</h2>
+                    <p>Como toda la información permanece en tu dispositivo, tienes control total:</p>
+                    <ul>
+                        <li>🗑️ <strong>Eliminar datos:</strong> Desinstala la app para eliminar todos los datos</li>
+                        <li>⚙️ <strong>Restablecer progreso:</strong> Usa la opción "Restablecer" en la pestaña Admin</li>
+                        <li>🔕 <strong>Revocar permisos:</strong> Cambia los permisos en Configuración de iOS</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>9. Cambios a Esta Política</h2>
+                    <p>Si actualizamos esta política de privacidad:</p>
+                    <ul>
+                        <li>Te notificaremos mediante una actualización de la app</li>
+                        <li>La fecha "Última actualización" se modificará</li>
+                        <li>Revisiones importantes requerirán tu aceptación</li>
+                    </ul>
+                </div>
+
+                <div class="contact-box">
+                    <h3>¿Preguntas sobre Privacidad?</h3>
+                    <p style="margin-bottom: 20px;">Estamos aquí para ayudarte</p>
+                    <a href="mailto:chuchito2009@gmail.com">📧 Contáctanos</a>
+                </div>
+
+                <div class="section">
+                    <h2>10. Información de Contacto</h2>
+                    <p>Si tienes preguntas o inquietudes sobre esta Política de Privacidad:</p>
+                    <ul>
+                        <li>📧 Email: chuchito2009@gmail.com</li>
+                        <li>🌐 Soporte: <a href="https://chuchit0.github.io/anahablaingles-support/" style="color: #FF9966;">chuchit0.github.io/anahablaingles-support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CONTENIDO EN INGLÉS -->
+            <div id="en-content" class="lang-content">
+                <div class="last-updated">Last Updated: October 8, 2025</div>
+
+                <div class="section">
+                    <h2>Privacy Summary</h2>
+                    <div class="highlight-box">
+                        <p><strong>Your privacy is our priority.</strong> Ana Learns English is a simple and secure educational app. We do NOT collect, store, or share personal data. All information remains on your device.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>1. Information We DO NOT Collect</h2>
+                    <p>Ana Learns English is designed with privacy-first principles. We do NOT collect:</p>
+                    <ul>
+                        <li>❌ Names, emails, or contact information</li>
+                        <li>❌ Geographic location</li>
+                        <li>❌ Payment information</li>
+                        <li>❌ Browsing history</li>
+                        <li>❌ Contacts or photos from your device</li>
+                        <li>❌ Unique device identifiers</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>2. Local Data on Your Device</h2>
+                    <p>The app stores information locally on your device solely to improve your learning experience:</p>
+                    <ul>
+                        <li>✅ Translation history (saved only on your iPhone/iPad)</li>
+                        <li>✅ Favorite words marked by you</li>
+                        <li>✅ Learning progress (numbers and words practiced)</li>
+                        <li>✅ Settings preferences (pronunciation duration)</li>
+                    </ul>
+                    <p><strong>Important:</strong> All this information remains exclusively on your device and is never sent to external servers.</p>
+                </div>
+
+                <div class="section">
+                    <h2>3. Voice Translator Usage</h2>
+                    <h3>Apple Translation API</h3>
+                    <p>The voice translation feature uses Apple's built-in translation services:</p>
+                    <ul>
+                        <li>Translations are processed through Apple's services</li>
+                        <li>Apple may temporarily process audio to perform translation</li>
+                        <li>We do not store or have access to your voice recordings</li>
+                        <li>Apple handles processing according to their <a href="https://www.apple.com/legal/privacy/" target="_blank" style="color: #FF9966;">Privacy Policy</a></li>
+                    </ul>
+
+                    <h3>Required Permissions</h3>
+                    <p>To use the voice translator, the app requests:</p>
+                    <ul>
+                        <li>🎤 <strong>Microphone access:</strong> Only when you press the record button</li>
+                        <li>🗣️ <strong>Speech recognition:</strong> To convert your speech to text</li>
+                    </ul>
+                    <p>You can revoke these permissions at any time from Settings → Privacy on your iPhone.</p>
+                </div>
+
+                <div class="section">
+                    <h2>4. Internet Connection</h2>
+                    <p>The app requires an internet connection only for:</p>
+                    <ul>
+                        <li>🌐 Real-time voice translation (using Apple services)</li>
+                    </ul>
+                    <p><strong>Without internet, you can use:</strong></p>
+                    <ul>
+                        <li>✅ Learn numbers 1-100 with pronunciation</li>
+                        <li>✅ Study essential words by categories</li>
+                        <li>✅ Listen to pronunciations</li>
+                        <li>✅ Review your saved history</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>5. Third-Party Services</h2>
+                    <p>Ana Learns English does NOT use:</p>
+                    <ul>
+                        <li>❌ Analytics or tracking tools</li>
+                        <li>❌ Advertising</li>
+                        <li>❌ Third-party services (except Apple Translation API)</li>
+                        <li>❌ Integrated social media</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>6. Children's Privacy</h2>
+                    <p>Ana Learns English is safe for all ages:</p>
+                    <ul>
+                        <li>✅ We do not collect information from children</li>
+                        <li>✅ No ads or in-app purchases</li>
+                        <li>✅ 100% appropriate educational content</li>
+                        <li>✅ No links to social media or external sites</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>7. Data Security</h2>
+                    <p>We protect your information through:</p>
+                    <ul>
+                        <li>🔒 Encrypted local storage on your device</li>
+                        <li>🔒 Secure communications with Apple services</li>
+                        <li>🔒 No storage on external servers</li>
+                        <li>🔒 Regularly reviewed and updated code</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>8. Your Rights</h2>
+                    <p>Since all information remains on your device, you have full control:</p>
+                    <ul>
+                        <li>🗑️ <strong>Delete data:</strong> Uninstall the app to remove all data</li>
+                        <li>⚙️ <strong>Reset progress:</strong> Use the "Reset" option in the Admin tab</li>
+                        <li>🔕 <strong>Revoke permissions:</strong> Change permissions in iOS Settings</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>9. Changes to This Policy</h2>
+                    <p>If we update this privacy policy:</p>
+                    <ul>
+                        <li>We will notify you through an app update</li>
+                        <li>The "Last Updated" date will be modified</li>
+                        <li>Significant revisions will require your acceptance</li>
+                    </ul>
+                </div>
+
+                <div class="contact-box">
+                    <h3>Privacy Questions?</h3>
+                    <p style="margin-bottom: 20px;">We're here to help you</p>
+                    <a href="mailto:chuchito2009@gmail.com">📧 Contact Us</a>
+                </div>
+
+                <div class="section">
+                    <h2>10. Contact Information</h2>
+                    <p>If you have questions or concerns about this Privacy Policy:</p>
+                    <ul>
+                        <li>📧 Email: chuchito2009@gmail.com</li>
+                        <li>🌐 Support: <a href="https://chuchit0.github.io/anahablaingles-support/" style="color: #FF9966;">chuchit0.github.io/anahablaingles-support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            © 2025 Lucio Aguilar. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            // Hide all content
+            document.getElementById('es-content').classList.remove('active');
+            document.getElementById('en-content').classList.remove('active');
+
+            // Show selected content
+            document.getElementById(lang + '-content').classList.add('active');
+
+            // Update button states
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

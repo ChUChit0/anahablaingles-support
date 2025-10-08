@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Aprende Inglés - Soporte</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #FF9966 0%, #66CC66 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FF9966 0%, #66CC66 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .flags {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .language-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .language-btn {
+            padding: 10px 30px;
+            border: 2px solid #FF9966;
+            background: white;
+            color: #FF9966;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .language-btn.active {
+            background: #FF9966;
+            color: white;
+        }
+
+        .language-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #FF9966;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #66CC66;
+            padding-bottom: 10px;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #FF9966 0%, #66CC66 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            margin: 30px 0;
+        }
+
+        .contact-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .contact-box a {
+            display: inline-block;
+            background: white;
+            color: #FF9966;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+
+        .contact-box a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #f8f8f8;
+            padding: 20px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #FF9966;
+            color: white;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 10px;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            color: #FF9966;
+            margin-bottom: 10px;
+        }
+
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .flags {
+                font-size: 40px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="flags">🇪🇸 🇺🇸</div>
+            <h1>Ana Aprende Inglés</h1>
+            <p>Soporte / Support</p>
+        </div>
+
+        <div class="content">
+            <div class="language-toggle">
+                <button class="language-btn active" onclick="setLanguage('es')">🇪🇸 Español</button>
+                <button class="language-btn" onclick="setLanguage('en')">🇺🇸 English</button>
+            </div>
+
+            <!-- CONTENIDO EN ESPAÑOL -->
+            <div id="es-content" class="lang-content active">
+                <div class="section">
+                    <h2>¡Bienvenida!</h2>
+                    <p>Ana Aprende Inglés es una app educativa diseñada para ayudarte a aprender inglés básico de manera simple y efectiva.</p>
+                </div>
+
+                <div class="contact-box">
+                    <h3>¿Necesitas ayuda?</h3>
+                    <p style="margin-bottom: 20px;">Estamos aquí para ayudarte</p>
+                    <a href="mailto:chuchito2009@gmail.com">📧 Enviar Email</a>
+                </div>
+
+                <div class="section">
+                    <h2>Características Principales</h2>
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">🗣️</div>
+                            <h3>Traductor de Voz</h3>
+                            <p>Habla y traduce al instante</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🔢</div>
+                            <h3>Números 1-100</h3>
+                            <p>Con pronunciación clara</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">📚</div>
+                            <h3>Palabras Esenciales</h3>
+                            <p>Por categorías útiles</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎤</div>
+                            <h3>Pronunciación</h3>
+                            <p>Escucha y practica</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Preguntas Frecuentes</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ ¿Cómo uso el traductor de voz?</div>
+                        <div class="faq-answer">Toca el ícono del micrófono, habla en español, y la app traducirá automáticamente a inglés. ¡Es muy fácil!</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ ¿Cómo escucho la pronunciación?</div>
+                        <div class="faq-answer">Toca cualquier palabra o número para escuchar cómo se pronuncia en ambos idiomas.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ ¿Puedo ver mi historial?</div>
+                        <div class="faq-answer">Sí, ve a la pestaña "Historial" para ver todas tus traducciones anteriores.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ ¿Cómo cambio la configuración?</div>
+                        <div class="faq-answer">Ve a la pestaña "Admin" para ajustar la duración de pronunciación y otras opciones.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Requisitos del Sistema</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">📱 iOS 18.0 o superior</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">📲 iPhone o iPad</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">🌐 Conexión a internet (para traductor)</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Privacidad y Seguridad</h2>
+                    <p>Tu privacidad es importante para nosotros:</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">✅ No recopilamos datos personales</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">✅ Traducciones procesadas de forma segura</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">✅ No compartimos información con terceros</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CONTENIDO EN INGLÉS -->
+            <div id="en-content" class="lang-content">
+                <div class="section">
+                    <h2>Welcome!</h2>
+                    <p>Ana Learns English is an educational app designed to help you learn basic English in a simple and effective way.</p>
+                </div>
+
+                <div class="contact-box">
+                    <h3>Need Help?</h3>
+                    <p style="margin-bottom: 20px;">We're here to help you</p>
+                    <a href="mailto:chuchito2009@gmail.com">📧 Send Email</a>
+                </div>
+
+                <div class="section">
+                    <h2>Main Features</h2>
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">🗣️</div>
+                            <h3>Voice Translator</h3>
+                            <p>Speak and translate instantly</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🔢</div>
+                            <h3>Numbers 1-100</h3>
+                            <p>With clear pronunciation</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">📚</div>
+                            <h3>Essential Words</h3>
+                            <p>By useful categories</p>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎤</div>
+                            <h3>Pronunciation</h3>
+                            <p>Listen and practice</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Frequently Asked Questions</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ How do I use the voice translator?</div>
+                        <div class="faq-answer">Tap the microphone icon, speak in Spanish, and the app will automatically translate to English. It's very easy!</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ How do I hear the pronunciation?</div>
+                        <div class="faq-answer">Tap any word or number to hear how it's pronounced in both languages.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ Can I see my history?</div>
+                        <div class="faq-answer">Yes, go to the "History" tab to see all your previous translations.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ How do I change settings?</div>
+                        <div class="faq-answer">Go to the "Admin" tab to adjust pronunciation duration and other options.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>System Requirements</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">📱 iOS 18.0 or later</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">📲 iPhone or iPad</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">🌐 Internet connection (for translator)</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Privacy & Security</h2>
+                    <p>Your privacy is important to us:</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">✅ We don't collect personal data</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">✅ Translations processed securely</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">✅ We don't share information with third parties</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            © 2025 Lucio Aguilar. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            // Hide all content
+            document.getElementById('es-content').classList.remove('active');
+            document.getElementById('en-content').classList.remove('active');
+
+            // Show selected content
+            document.getElementById(lang + '-content').classList.add('active');
+
+            // Update button states
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Aprende Inglés - Soporte</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #FF9966 0%, #66CC66 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FF9966 0%, #66CC66 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .flags {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .language-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .language-btn {
+            padding: 10px 30px;
+            border: 2px solid #FF9966;
+            background: white;
+            color: #FF9966;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .language-btn.active {
+            background: #FF9966;
+            color: white;
+        }
+
+        .language-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #FF9966;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #66CC66;
+            padding-bottom: 10px;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #FF9966 0%, #66CC66 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            margin: 30px 0;
+        }
+
+        .contact-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .contact-box a {
+            display: inline-block;
+            background: white;
+            color: #FF9966;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+
+        .contact-box a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: white;
+            border: 3px solid #f0f0f0;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #FF9966;
+            box-shadow: 0 10px 20px rgba(255, 153, 102, 0.2);
+        }
+
+        .feature-card.selected {
+            border-color: #66CC66;
+            background: linear-gradient(135deg, rgba(255, 153, 102, 0.05) 0%, rgba(102, 204, 102, 0.05) 100%);
+            box-shadow: 0 5px 15px rgba(102, 204, 102, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-title {
+            color: #FF9966;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .feature-subtitle {
+            color: #666;
+            font-size: 1em;
+        }
+
+        .click-hint {
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* EXPLANATION SECTION - OUTSIDE CARDS */
+        .explanation-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255, 153, 102, 0.1) 0%, rgba(102, 204, 102, 0.1) 100%);
+            border-radius: 15px;
+            border: 3px solid #66CC66;
+            display: none;
+        }
+
+        .explanation-section.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .explanation-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .explanation-icon {
+            font-size: 80px;
+            margin-bottom: 15px;
+        }
+
+        .explanation-title {
+            color: #FF9966;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .explanation-subtitle {
+            color: #66CC66;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        /* HORIZONTAL EXAMPLES SCROLL */
+        .examples-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #FF9966 #f0f0f0;
+        }
+
+        .examples-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .examples-container::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+
+        .examples-container::-webkit-scrollbar-thumb {
+            background: #FF9966;
+            border-radius: 10px;
+        }
+
+        .examples-scroll {
+            display: flex;
+            gap: 20px;
+            padding: 10px 5px;
+        }
+
+        .real-example {
+            min-width: 350px;
+            max-width: 350px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #66CC66;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .real-example-title {
+            font-weight: bold;
+            color: #66CC66;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .real-example-text {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .dialog-example {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        .spanish-text {
+            color: #FF9966;
+            font-weight: bold;
+        }
+
+        .english-text {
+            color: #66CC66;
+            font-weight: bold;
+        }
+
+        .scroll-hint {
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #f8f8f8;
+            padding: 18px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #FF9966;
+            color: white;
+        }
+
+        .faq-answer {
+            padding: 18px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .flags {
+                font-size: 40px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .real-example {
+                min-width: 280px;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="flags">🇪🇸 🇺🇸</div>
+            <h1>Ana Aprende Inglés</h1>
+            <p>Soporte / Support</p>
+        </div>
+
+        <div class="content">
+            <div class="language-toggle">
+                <button class="language-btn active" onclick="setLanguage('es')">🇪🇸 Español</button>
+                <button class="language-btn" onclick="setLanguage('en')">🇺🇸 English</button>
+            </div>
+
+            <!-- CONTENIDO EN ESPAÑOL -->
+            <div id="es-content" class="lang-content active">
+                <div class="section">
+                    <h2>¡Bienvenida!</h2>
+                    <p>Ana Aprende Inglés es una app educativa diseñada para ayudarte a aprender inglés básico de manera simple y efectiva.</p>
+                </div>
+
+                <div class="contact-box">
+                    <h3>¿Necesitas ayuda?</h3>
+                    <p style="margin-bottom: 20px;">Estamos aquí para ayudarte</p>
+                    <a href="mailto:chuchito2009@gmail.com">📧 Enviar Email</a>
+                </div>
+
+                <div class="section">
+                    <h2>Características Principales</h2>
+                    <p class="click-hint">👆 Toca cada cuadro para ver ejemplos de uso en la vida real</p>
+
+                    <div class="features-grid">
+                        <div class="feature-card" onclick="showExplanation('translator-es')">
+                            <span class="feature-icon">🗣️</span>
+                            <div class="feature-title">Traductor de Voz</div>
+                            <div class="feature-subtitle">Habla y traduce al instante</div>
+                        </div>
+
+                        <div class="feature-card" onclick="showExplanation('numbers-es')">
+                            <span class="feature-icon">🔢</span>
+                            <div class="feature-title">Números 1-100</div>
+                            <div class="feature-subtitle">Con pronunciación clara</div>
+                        </div>
+
+                        <div class="feature-card" onclick="showExplanation('words-es')">
+                            <span class="feature-icon">📚</span>
+                            <div class="feature-title">Palabras Esenciales</div>
+                            <div class="feature-subtitle">Por categorías útiles</div>
+                        </div>
+
+                        <div class="feature-card" onclick="showExplanation('pronunciation-es')">
+                            <span class="feature-icon">🎤</span>
+                            <div class="feature-title">Pronunciación</div>
+                            <div class="feature-subtitle">Escucha y practica</div>
+                        </div>
+                    </div>
+
+                    <!-- TRANSLATOR EXPLANATION -->
+                    <div id="translator-es" class="explanation-section">
+                        <div class="explanation-header">
+                            <div class="explanation-icon">🗣️</div>
+                            <div class="explanation-title">Traductor de Voz</div>
+                            <div class="explanation-subtitle">💡 ¿Cómo te ayuda en la vida real?</div>
+                        </div>
+
+                        <div class="examples-container">
+                            <div class="examples-scroll">
+                                <div class="real-example">
+                                    <div class="real-example-title">🛒 En el Supermercado</div>
+                                    <div class="real-example-text">
+                                        Tu jefe te pide que compres algo que no conoces. Abres la app, tocas el micrófono y dices: <span class="spanish-text">"¿Dónde está el tomillo?"</span>
+                                    </div>
+                                    <div class="dialog-example">
+                                        La app te dice: <span class="english-text">"Where is the thyme?"</span><br>
+                                        Le muestras la pantalla al empleado ✅
+                                    </div>
+                                </div>
+
+                                <div class="real-example">
+                                    <div class="real-example-title">👨‍🍳 En el Trabajo</div>
+                                    <div class="real-example-text">
+                                        El chef te dice algo en inglés que no entiendes. Dices en español lo que crees que dijo, y la app te lo traduce para confirmar si entendiste bien.
+                                    </div>
+                                    <div class="dialog-example">
+                                        Tú: <span class="spanish-text">"Lavar los platos"</span><br>
+                                        App: <span class="english-text">"Wash the dishes"</span><br>
+                                        ✅ ¡Sí entendiste!
+                                    </div>
+                                </div>
+
+                                <div class="real-example">
+                                    <div class="real-example-title">🏥 Citas Médicas</div>
+                                    <div class="real-example-text">
+                                        Necesitas decir dónde te duele pero no sabes cómo.
+                                    </div>
+                                    <div class="dialog-example">
+                                        Tú: <span class="spanish-text">"Me duele la cabeza"</span><br>
+                                        App: <span class="english-text">"My head hurts"</span><br>
+                                        💡 Ahora puedes comunicarte
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="scroll-hint">← Desliza para ver más ejemplos →</p>
+                    </div>
+
+                    <!-- NUMBERS EXPLANATION -->
+                    <div id="numbers-es" class="explanation-section">
+                        <div class="explanation-header">
+                            <div class="explanation-icon">🔢</div>
+                            <div class="explanation-title">Números 1-100</div>
+                            <div class="explanation-subtitle">💡 ¿Para qué sirven los números?</div>
+                        </div>
+
+                        <div class="examples-container">
+                            <div class="examples-scroll">
+                                <div class="real-example">
+                                    <div class="real-example-title">💰 Entender Precios</div>
+                                    <div class="real-example-text">
+                                        En la tienda escuchas: <span class="english-text">"Fifteen ninety-nine"</span>
+                                    </div>
+                                    <div class="dialog-example">
+                                        Buscas <span class="spanish-text">15</span> en la app → Escuchas <span class="english-text">"fifteen"</span><br>
+                                        Buscas <span class="spanish-text">99</span> en la app → Escuchas <span class="english-text">"ninety-nine"</span><br>
+                                        💡 Ahora sabes que cuesta $15.99
+                                    </div>
+                                </div>
+
+                                <div class="real-example">
+                                    <div class="real-example-title">📞 Dar tu Teléfono</div>
+                                    <div class="real-example-text">
+                                        Te piden tu número de teléfono: 555-1234
+                                    </div>
+                                    <div class="dialog-example">
+                                        Practicas cada número:<br>
+                                        <span class="spanish-text">5</span> = <span class="english-text">"five"</span><br>
+                                        <span class="spanish-text">1</span> = <span class="english-text">"one"</span><br>
+                                        <span class="spanish-text">2</span> = <span class="english-text">"two"</span><br>
+                                        ✅ Ya sabes decirlo con confianza
+                                    </div>
+                                </div>
+
+                                <div class="real-example">
+                                    <div class="real-example-title">🏠 Entender Direcciones</div>
+                                    <div class="real-example-text">
+                                        Te dan una dirección: <span class="english-text">"Seventy-three Main Street"</span>
+                                    </div>
+                                    <div class="dialog-example">
+                                        Buscas <span class="spanish-text">73</span> en la app<br>
+                                        Escuchas <span class="english-text">"seventy-three"</span><br>
+                                        💡 Sabes que es el número 73
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="scroll-hint">← Desliza para ver más ejemplos →</p>
+                    </div>
+
+                    <!-- WORDS EXPLANATION -->
+                    <div id="words-es" class="explanation-section">
+                        <div class="explanation-header">
+                            <div class="explanation-icon">📚</div>
+                            <div class="explanation-title">Palabras Esenciales</div>
+                            <div class="explanation-subtitle">💡 ¿Por qué por categorías?</div>
+                        </div>
+
+                        <div class="examples-container">
+                            <div class="examples-scroll">
+                                <div class="real-example">
+                                    <div class="real-example-title">🍳 Categoría: Comida</div>
+                                    <div class="real-example-text">
+                                        Todas las palabras de comida juntas para aprenderlas rápido.
+                                    </div>
+                                    <div class="dialog-example">
+                                        <span class="spanish-text">agua</span> = <span class="english-text">water</span><br>
+                                        <span class="spanish-text">arroz</span> = <span class="english-text">rice</span><br>
+                                        <span class="spanish-text">carne</span> = <span class="english-text">meat</span><br>
+                                        💡 Aprendes todo lo del trabajo en un solo lugar
+                                    </div>
+                                </div>
+
+                                <div class="real-example">
+                                    <div class="real-example-title">👨‍👩‍👧 Categoría: Familia</div>
+                                    <div class="real-example-text">
+                                        Tu hijo necesita ayuda con la tarea sobre la familia.
+                                    </div>
+                                    <div class="dialog-example">
+                                        <span class="spanish-text">madre</span> = <span class="english-text">mother</span><br>
+                                        <span class="spanish-text">padre</span> = <span class="english-text">father</span><br>
+                                        <span class="spanish-text">hermana</span> = <span class="english-text">sister</span><br>
+                                        ✅ Puedes ayudar a tu hijo
+                                    </div>
+                                </div>
+
+                                <div class="real-example">
+                                    <div class="real-example-title">👋 Categoría: Saludos</div>
+                                    <div class="real-example-text">
+                                        Saludar educadamente en el trabajo o cuando llegas.
+                                    </div>
+                                    <div class="dialog-example">
+                                        <span class="spanish-text">buenos días</span> = <span class="english-text">good morning</span><br>
+                                        <span class="spanish-text">gracias</span> = <span class="english-text">thank you</span><br>
+                                        <span class="spanish-text">de nada</span> = <span class="english-text">you're welcome</span><br>
+                                        💡 Te ves profesional y educada
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="scroll-hint">← Desliza para ver más ejemplos →</p>
+                    </div>
+
+                    <!-- PRONUNCIATION EXPLANATION -->
+                    <div id="pronunciation-es" class="explanation-section">
+                        <div class="explanation-header">
+                            <div class="explanation-icon">🎤</div>
+                            <div class="explanation-title">Pronunciación</div>
+                            <div class="explanation-subtitle">💡 ¿Por qué es importante?</div>
+                        </div>
+
+                        <div class="examples-container">
+                            <div class="examples-scroll">
+                                <div class="real-example">
+                                    <div class="real-example-title">🗣️ Practicar Antes de Hablar</div>
+                                    <div class="real-example-text">
+                                        Mañana tienes que pedir algo en el trabajo. Hoy practicas en casa.
+                                    </div>
+                                    <div class="dialog-example">
+                                        Buscas: <span class="spanish-text">"agua"</span><br>
+                                        Escuchas: <span class="english-text">"water"</span> 🔊<br>
+                                        Repites 5 veces hasta que suene bien<br>
+                                        💡 Al día siguiente lo dices con confianza
+                                    </div>
+                                </div>
+
+                                <div class="real-example">
+                                    <div class="real-example-title">👂 Entender Mejor</div>
+                                    <div class="real-example-text">
+                                        Cuando escuchas cómo se pronuncia, luego lo reconoces cuando te lo dicen.
+                                    </div>
+                                    <div class="dialog-example">
+                                        Practicaste: <span class="english-text">"chicken"</span> 🔊<br>
+                                        Tu jefe dice: <span class="english-text">"Cut the chicken"</span><br>
+                                        ✅ ¡Reconoces la palabra! Ya sabes que dice "pollo"
+                                    </div>
+                                </div>
+
+                                <div class="real-example">
+                                    <div class="real-example-title">💪 Ganar Confianza</div>
+                                    <div class="real-example-text">
+                                        No es solo saber la palabra, es atreverte a decirla sin miedo.
+                                    </div>
+                                    <div class="dialog-example">
+                                        Antes: 😰 Sentías pena de hablar inglés<br>
+                                        Después de practicar: 😊 Ya sabes cómo suena<br>
+                                        💡 Hablas con más seguridad
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="scroll-hint">← Desliza para ver más ejemplos →</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Preguntas Frecuentes</h2>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ ¿Necesito internet para usar la app?</div>
+                        <div class="faq-answer">Solo para el traductor de voz. Los números, palabras y pronunciación funcionan sin internet.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ ¿Es difícil de usar?</div>
+                        <div class="faq-answer">No, está diseñada con letras grandes y botones simples. Si puedes usar WhatsApp, puedes usar esta app.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ ¿Puedo practicar antes de ir al trabajo?</div>
+                        <div class="faq-answer">Sí, puedes escuchar cualquier palabra cuantas veces quieras para practicar la pronunciación.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">❓ ¿Guarda mis traducciones?</div>
+                        <div class="faq-answer">Sí, en la pestaña "Historial" puedes ver todo lo que has traducido antes.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Requisitos</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">📱 iPhone o iPad</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">📲 iOS 18.0 o más nuevo</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">🌐 Internet (solo para traductor)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CONTENIDO EN INGLÉS -->
+            <div id="en-content" class="lang-content">
+                <div class="section">
+                    <h2>Welcome!</h2>
+                    <p>Ana Learns English is an educational app designed to help you learn basic English in a simple and effective way.</p>
+                </div>
+
+                <div class="contact-box">
+                    <h3>Need Help?</h3>
+                    <p style="margin-bottom: 20px;">We're here to help you</p>
+                    <a href="mailto:chuchito2009@gmail.com">📧 Send Email</a>
+                </div>
+
+                <div class="section">
+                    <h2>Main Features</h2>
+                    <p class="click-hint">👆 Tap each card to see real-life usage examples</p>
+
+                    <div class="features-grid">
+                        <div class="feature-card" onclick="showExplanation('translator-en')">
+                            <span class="feature-icon">🗣️</span>
+                            <div class="feature-title">Voice Translator</div>
+                            <div class="feature-subtitle">Speak and translate instantly</div>
+                        </div>
+
+                        <div class="feature-card" onclick="showExplanation('numbers-en')">
+                            <span class="feature-icon">🔢</span>
+                            <div class="feature-title">Numbers 1-100</div>
+                            <div class="feature-subtitle">With clear pronunciation</div>
+                        </div>
+
+                        <div class="feature-card" onclick="showExplanation('words-en')">
+                            <span class="feature-icon">📚</span>
+                            <div class="feature-title">Essential Words</div>
+                            <div class="feature-subtitle">By useful categories</div>
+                        </div>
+
+                        <div class="feature-card" onclick="showExplanation('pronunciation-en')">
+                            <span class="feature-icon">🎤</span>
+                            <div class="feature-title">Pronunciation</div>
+                            <div class="feature-subtitle">Listen and practice</div>
+                        </div>
+                    </div>
+
+                    <!-- ENGLISH EXPLANATIONS (simplified) -->
+                    <div id="translator-en" class="explanation-section">
+                        <div class="explanation-header">
+                            <div class="explanation-icon">🗣️</div>
+                            <div class="explanation-title">Voice Translator</div>
+                            <div class="explanation-subtitle">💡 How does it help in real life?</div>
+                        </div>
+                        <div class="examples-container">
+                            <div class="examples-scroll">
+                                <div class="real-example">
+                                    <div class="real-example-title">🛒 At the Store</div>
+                                    <div class="real-example-text">Need to find something? Speak in Spanish, show the translation.</div>
+                                </div>
+                                <div class="real-example">
+                                    <div class="real-example-title">👨‍🍳 At Work</div>
+                                    <div class="real-example-text">Confirm what your boss said by translating.</div>
+                                </div>
+                                <div class="real-example">
+                                    <div class="real-example-title">🏥 Medical Visits</div>
+                                    <div class="real-example-text">Explain where it hurts in English.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="scroll-hint">← Scroll for more examples →</p>
+                    </div>
+
+                    <div id="numbers-en" class="explanation-section">
+                        <div class="explanation-header">
+                            <div class="explanation-icon">🔢</div>
+                            <div class="explanation-title">Numbers 1-100</div>
+                            <div class="explanation-subtitle">💡 What are numbers used for?</div>
+                        </div>
+                        <div class="examples-container">
+                            <div class="examples-scroll">
+                                <div class="real-example">
+                                    <div class="real-example-title">💰 Understanding Prices</div>
+                                    <div class="real-example-text">Hear "$15.99" and know what it means.</div>
+                                </div>
+                                <div class="real-example">
+                                    <div class="real-example-title">📞 Phone Numbers</div>
+                                    <div class="real-example-text">Say your phone number with confidence.</div>
+                                </div>
+                                <div class="real-example">
+                                    <div class="real-example-title">🏠 Addresses</div>
+                                    <div class="real-example-text">Understand street numbers.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="scroll-hint">← Scroll for more examples →</p>
+                    </div>
+
+                    <div id="words-en" class="explanation-section">
+                        <div class="explanation-header">
+                            <div class="explanation-icon">📚</div>
+                            <div class="explanation-title">Essential Words</div>
+                            <div class="explanation-subtitle">💡 Why by categories?</div>
+                        </div>
+                        <div class="examples-container">
+                            <div class="examples-scroll">
+                                <div class="real-example">
+                                    <div class="real-example-title">🍳 Food Category</div>
+                                    <div class="real-example-text">Learn all work-related words together.</div>
+                                </div>
+                                <div class="real-example">
+                                    <div class="real-example-title">👨‍👩‍👧 Family Category</div>
+                                    <div class="real-example-text">Help your children with homework.</div>
+                                </div>
+                                <div class="real-example">
+                                    <div class="real-example-title">👋 Greetings</div>
+                                    <div class="real-example-text">Be polite and professional.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="scroll-hint">← Scroll for more examples →</p>
+                    </div>
+
+                    <div id="pronunciation-en" class="explanation-section">
+                        <div class="explanation-header">
+                            <div class="explanation-icon">🎤</div>
+                            <div class="explanation-title">Pronunciation</div>
+                            <div class="explanation-subtitle">💡 Why is it important?</div>
+                        </div>
+                        <div class="examples-container">
+                            <div class="examples-scroll">
+                                <div class="real-example">
+                                    <div class="real-example-title">🗣️ Practice Before Speaking</div>
+                                    <div class="real-example-text">Practice at home, speak confidently at work.</div>
+                                </div>
+                                <div class="real-example">
+                                    <div class="real-example-title">👂 Better Understanding</div>
+                                    <div class="real-example-text">Recognize words you've practiced.</div>
+                                </div>
+                                <div class="real-example">
+                                    <div class="real-example-title">💪 Gain Confidence</div>
+                                    <div class="real-example-text">From shy to confident speaker.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="scroll-hint">← Scroll for more examples →</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">❓ Do I need internet?</div>
+                        <div class="faq-answer">Only for the voice translator. Numbers, words and pronunciation work offline.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">❓ Is it difficult to use?</div>
+                        <div class="faq-answer">No, designed with large text and simple buttons. If you can use WhatsApp, you can use this app.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Requirements</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">📱 iPhone or iPad</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">📲 iOS 18.0 or newer</li>
+                        <li style="padding: 10px; background: #f8f8f8; margin: 5px 0; border-radius: 5px;">🌐 Internet (only for translator)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            © 2025 Lucio Aguilar. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        let currentExplanation = null;
+
+        function setLanguage(lang) {
+            document.getElementById('es-content').classList.remove('active');
+            document.getElementById('en-content').classList.remove('active');
+            document.getElementById(lang + '-content').classList.add('active');
+
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Hide all explanations when switching language
+            currentExplanation = null;
+            document.querySelectorAll('.explanation-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+        }
+
+        function showExplanation(id) {
+            const explanationSection = document.getElementById(id);
+            const clickedCard = event.currentTarget;
+
+            // If clicking the same card, hide the explanation
+            if (currentExplanation === id) {
+                explanationSection.classList.remove('active');
+                clickedCard.classList.remove('selected');
+                currentExplanation = null;
+            } else {
+                // Hide all other explanations
+                document.querySelectorAll('.explanation-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.querySelectorAll('.feature-card').forEach(card => {
+                    card.classList.remove('selected');
+                });
+
+                // Show the clicked explanation
+                explanationSection.classList.add('active');
+                clickedCard.classList.add('selected');
+                currentExplanation = id;
+
+                // Smooth scroll to the explanation
+                setTimeout(() => {
+                    explanationSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>
